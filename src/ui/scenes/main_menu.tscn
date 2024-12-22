@@ -84,6 +84,7 @@ text = "Quit
 "
 
 [node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_dt7l5")]
+visible = false
 pre_scene = NodePath("../MainMenu")
 
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Start" to="UI/MainMenu" method="_on_start_pressed"]

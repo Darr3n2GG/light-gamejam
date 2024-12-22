@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc388hkklqvvc"]
 
-[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://src/ui/assets/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
-[ext_resource type="Script" path="res://src/ui/scripts/main_menu.gd" id="1_tievw"]
-[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://src/ui/scenes/settings.tscn" id="3_dt7l5"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://src/assets/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
+[ext_resource type="Script" path="res://src/ui/scripts/main_menu.gd" id="1_jpfie"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://src/ui/scenes/settings.tscn" id="3_ysliv"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tievw")
+script = ExtResource("1_jpfie")
 
 [node name="ColorRect" type="ColorRect" parent="UI/MainMenu"]
 layout_mode = 1
@@ -28,31 +28,31 @@ color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -318.0
-offset_top = -104.0
-offset_right = 318.0
-offset_bottom = 104.0
-grow_horizontal = 2
+offset_left = -373.0
+offset_top = -219.0
+offset_right = -35.0
+offset_bottom = 39.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="SimpleTitle" type="Label" parent="UI/MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("1_0ajpt")
 theme_override_font_sizes/font_size = 50
-text = "Simple Template: Main Menu
-"
+text = "Light GameJam"
 
 [node name="Start" type="Button" parent="UI/MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Option")
@@ -63,7 +63,7 @@ text = "Start"
 [node name="Option" type="Button" parent="UI/MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -74,7 +74,7 @@ text = "Option"
 [node name="Quit" type="Button" parent="UI/MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Option")
 focus_neighbor_bottom = NodePath("../Start")
@@ -83,7 +83,7 @@ theme_override_font_sizes/font_size = 24
 text = "Quit
 "
 
-[node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_dt7l5")]
+[node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_ysliv")]
 visible = false
 pre_scene = NodePath("../MainMenu")
 

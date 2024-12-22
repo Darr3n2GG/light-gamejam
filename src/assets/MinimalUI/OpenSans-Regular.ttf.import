@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dsisvfrdgqau"
-path="res://.godot/imported/Cubic_11_1.013_R.ttf-c4b03afe6d3c318d3524ffe7b6bf53c7.fontdata"
+uid="uid://caa7hos1qw78g"
+path="res://.godot/imported/OpenSans-Regular.ttf-4194f8be582e0e8ea47733b2efdbc86a.fontdata"
 
 [deps]
 
-source_file="res://src/ui/assets/Cubic_11_1.013_R.ttf"
-dest_files=["res://.godot/imported/Cubic_11_1.013_R.ttf-c4b03afe6d3c318d3524ffe7b6bf53c7.fontdata"]
+source_file="res://src/assets/MinimalUI/OpenSans-Regular.ttf"
+dest_files=["res://.godot/imported/OpenSans-Regular.ttf-4194f8be582e0e8ea47733b2efdbc86a.fontdata"]
 
 [params]
 

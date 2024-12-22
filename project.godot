@@ -16,12 +16,12 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://src/ui/assets/default_bus_layout.tres"
+buses/default_bus_layout="res://src/assets/default_bus_layout.tres"
 
 [autoload]
 
-Utilities="*res://src/ui/scenes/utilities.tscn"
-AudioManager="*res://src/ui/scenes/audio_manager.tscn"
+Utilities="*res://src/lib/utilities/utilities.tscn"
+AudioManager="*res://src/lib/audio_manager/audio_manager.tscn"
 
 [input]
 

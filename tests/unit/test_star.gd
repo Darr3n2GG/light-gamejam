@@ -3,27 +3,34 @@ extends GutTest
 class TestSprite:
 	extends GutTest
 	
-	var star = preload("res://src/test_objects/star/star.tscn").instantiate()
+	var star = autoqfree(preload("res://src/test_objects/star/star.tscn").instantiate())
+	var sprite = star.get_node("Sprite")
 	
 	func test_sprite_exists() -> void:
-		var sprite = autoqfree(star.get_node("Sprite"))
-		assert_not_null(sprite, "Sprite exists.")
+		assert_not_null(sprite, "Sprite does not exist.")
 		
 	func test_sprite_texture_exists() -> void:
-		pending()
+		var texture = sprite.texture
+		assert_not_null(texture, "Texture does not exist.")
 		
-	func test_sprite_not_centered() -> void:
-		pending()
+	func test_sprite_centered() -> void:
+		var centered = sprite.centered
+		assert_true(centered, "Sprite is not centered.")
 		
 	func test_sprite_not_offset() -> void:
-		pending()
+		var offset = sprite.offset
+		assert_eq(offset, Vector2.ZERO, "Sprite has an offset.")
 		
 	func test_sprite_region_not_enabled() -> void:
-		pending()
+		var region = sprite.region_enabled
+		assert_false(region, "Sprite has region enabled.")
+		
 			
 func test_pointer_exists() -> void:
-	pending()
-	
+	var star = autoqfree(preload("res://src/test_objects/star/star.tscn").instantiate())
+	var pointer = star.get_node("Pointer")
+	assert_not_null(pointer, "Pointer does not exist.")
+		
 func test_star_selected() -> void:
 	pending()
 	

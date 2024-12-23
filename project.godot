@@ -23,6 +23,10 @@ buses/default_bus_layout="res://src/assets/default_bus_layout.tres"
 Utilities="*res://src/lib/utilities/utilities.tscn"
 AudioManager="*res://src/lib/audio_manager/audio_manager.tscn"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [input]
 
 Up={

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc8ctbto8e8nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au7sh"]
+
+[node name="LightSource" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_au7sh")
+
+[node name="Makeshift-design" type="Polygon2D" parent="."]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(1.25, 1.25)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

@@ -3,11 +3,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0auf2"]
 size = Vector2(16, 32)
 
-[node name="Player" type="StaticBody2D"]
+[node name="Window" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0auf2")
-
-[node name="Makeshift design" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+debug_color = Color(0, 0, 0, 0.42)

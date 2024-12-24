@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ouar8swffe7"]
+
+[ext_resource type="Script" path="res://src/components/Star/star.gd" id="1_0gx0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fencx"]
+
+[node name="Star" type="CharacterBody2D"]
+script = ExtResource("1_0gx0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fencx")
+
+[node name="Makeshift-design" type="Polygon2D" parent="."]
+color = Color(0.975142, 0.975142, 7.70092e-06, 1)
+polygon = PackedVector2Array(-10, -8, -0.0383167, -10, 10, -8, 10, 10, -10, 10)

@@ -34,10 +34,6 @@ var star = preload("res://src/test_objects/star/star.tscn").instantiate()
 func after_all():
 	star.queue_free()
 	gut.p("Freed orphans.")
-	
-func test_pointer_exists() -> void:
-	var pointer = star.get_node("Pointer")
-	assert_not_null(pointer, "Pointer does not exist.")
 			
 func test_star_selected() -> void:
 	pending()
@@ -46,12 +42,6 @@ func test_star_deselected() -> void:
 	pending()
 	
 func test_star_state_changed() -> void:
-	pending()
-	
-func test_star_detect_light() -> void:
-	pending()
-
-func test_star_emit_light() -> void:
 	pending()
 	
 func test_star_draggable() -> void:

@@ -3,8 +3,12 @@ extends GutTest
 class TestSprite:
 	extends GutTest
 	
-	var star = autoqfree(preload("res://src/test_objects/star/star.tscn").instantiate())
+	var star = preload("res://src/test_objects/star/star.tscn").instantiate()
 	var sprite = star.get_node("Sprite")
+	
+	func after_all():
+		star.queue_free()
+		gut.p("Freed star orphan")
 	
 	func test_sprite_exists() -> void:
 		assert_not_null(sprite, "Sprite does not exist.")
@@ -25,12 +29,16 @@ class TestSprite:
 		var region = sprite.region_enabled
 		assert_false(region, "Sprite has region enabled.")
 		
-			
+var star = preload("res://src/test_objects/star/star.tscn").instantiate()
+
+func after_all():
+	star.queue_free()
+	gut.p("Freed orphans.")
+	
 func test_pointer_exists() -> void:
-	var star = autoqfree(preload("res://src/test_objects/star/star.tscn").instantiate())
 	var pointer = star.get_node("Pointer")
 	assert_not_null(pointer, "Pointer does not exist.")
-		
+			
 func test_star_selected() -> void:
 	pending()
 	

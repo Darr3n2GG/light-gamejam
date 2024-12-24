@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgsk2vb2tsgsl"]
 
-[ext_resource type="Script" path="res://src/test_objects/light/light_beam/light_beam.gd" id="1_ydu5k"]
+[ext_resource type="Script" path="res://src/game_objects/light/light_beam/light_beam.gd" id="1_ydu5k"]
 
 [node name="LightBeam" type="RayCast2D"]
 script = ExtResource("1_ydu5k")

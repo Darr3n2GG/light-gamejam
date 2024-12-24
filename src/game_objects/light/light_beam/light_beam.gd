@@ -1,0 +1,2 @@
+extends RayCast2D
+class_name LightBeam

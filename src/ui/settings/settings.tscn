@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://603k3vy4p3f1"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://src/assets/MinimalUI/MinimalUI.tres" id="1_8vxdm"]
-[ext_resource type="Script" path="res://src/ui/scripts/settings.gd" id="2_7yy6c"]
-[ext_resource type="Script" path="res://src/ui/scripts/video.gd" id="2_u8ap5"]
-[ext_resource type="Script" path="res://src/ui/scripts/audio.gd" id="3_t3cm1"]
+[ext_resource type="Script" path="res://src/ui/settings/settings.gd" id="2_7yy6c"]
+[ext_resource type="Script" path="res://src/ui/settings/video.gd" id="2_u8ap5"]
+[ext_resource type="Script" path="res://src/ui/settings/audio.gd" id="3_t3cm1"]
 [ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://src/lib/action_button/action_button.tscn" id="4_qu75p"]
 
 [node name="Settings" type="TabContainer"]

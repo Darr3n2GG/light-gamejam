@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/ui/settings/settings.gd" id="2_7yy6c"]
 [ext_resource type="Script" path="res://src/ui/settings/video.gd" id="2_u8ap5"]
 [ext_resource type="Script" path="res://src/ui/settings/audio.gd" id="3_t3cm1"]
-[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://src/lib/action_button/action_button.tscn" id="4_qu75p"]
+[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://src/ui/action_button/action_button.tscn" id="4_qu75p"]
 
 [node name="Settings" type="TabContainer"]
 anchors_preset = 15

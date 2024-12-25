@@ -14,15 +14,16 @@ func _process(delta):
 			look_at(get_global_mouse_position()) ## problem: it can't be paused with releasing left click
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and touching_mouse: 
-			if event.is_pressed(): #to define hold
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT: 
+			if event.is_pressed() and touching_mouse: #to define hold
 				holding = true
 				timer.start()
-			else:
+			if !event.is_pressed():
 				if timer.time_left != 0: #within time
 					clicked()
 				timer.stop()
 				holding = false
+				print("not holding")
 
 func clicked():
 	if touching_mouse: #inside star

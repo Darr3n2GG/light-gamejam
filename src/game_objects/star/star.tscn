@@ -9,7 +9,7 @@
 [node name="Star" type="Node2D"]
 script = ExtResource("1_62vmr")
 
-[node name="DragMode" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ckm8d")
 
@@ -34,3 +34,4 @@ one_shot = true
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

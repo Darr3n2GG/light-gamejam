@@ -1,47 +1,55 @@
 extends Node2D
 class_name Star
 
-@onready var timer = $Timer
-@onready var drag = $DragMode
-@onready var angle = $AngleMode
+@onready var mouse_click_timer = $Timer
+@onready var sprite = $Sprite
+var drag_sprite = load("res://src/game_objects/star/star.png")
+var angle_sprite = load("res://src/game_objects/star/star2.png")
 
-var drag_mode: bool = true
-var touching_mouse: bool = false
-var holding: bool = false
+var touching_mouse : bool = false
+var holding_mouse : bool = false
+enum ActionStates {
+	DRAG,
+	ANGLE
+}
+var action_state : ActionStates = ActionStates.DRAG
 
-func _process(delta):
-	if holding:
-		if drag_mode:
+func _process(_delta) -> void:
+	if holding_mouse:
+		if action_state == ActionStates.DRAG:
 			global_position = get_global_mouse_position()
-		elif !touching_mouse:
-			rotate(get_angle_to(get_global_mouse_position())+1.5708)
-
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT: 
-		if event.is_pressed():
-			if touching_mouse: #to define hold
-				holding = true
-				timer.start()
-			else: #revert mode after unselect
-				drag_mode = true
-		
-		if !event.is_pressed():
-			if timer.time_left > 0: #within time
-				clicked()
-			timer.stop()
-			holding = false
-
-func clicked():
-	if touching_mouse: #inside star
-		if drag_mode: 
-			drag_mode = false
-			angle.visible = true
-			drag.visible = false
 		else:
-			drag_mode = true
-			angle.visible = false
-			drag.visible = true
+			var angle_of_self_to_mouse = self.get_angle_to(get_global_mouse_position()) + 1.570796
+			# 1.570796 is 90 degrees in radian
+			rotate(angle_of_self_to_mouse)
 
+func _input(event) -> void:
+	if event.is_action_pressed("LeftClick"):
+		if touching_mouse:
+			mouse_click_timer.start()
+		else:
+			reset_state()
+	elif event.is_action_released("LeftClick"):
+		if mouse_click_timer.time_left > 0 and touching_mouse: #within time
+			change_state()
+		mouse_click_timer.stop()
+		holding_mouse = false
+
+func change_state() -> void:
+	if action_state == ActionStates.DRAG: 
+		action_state = ActionStates.ANGLE
+		sprite.texture = angle_sprite
+	else:
+		action_state = ActionStates.DRAG
+		sprite.texture = drag_sprite
+		
+func reset_state() -> void:
+	action_state = ActionStates.DRAG
+	sprite.texture = drag_sprite
+			
+func _on_timer_timeout() -> void:
+	holding_mouse = true
+		
 func _on_area_2d_mouse_entered():
 	touching_mouse = true
 

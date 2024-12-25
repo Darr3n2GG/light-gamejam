@@ -30,10 +30,13 @@ func map_pointer_to_light_beam(pointer : Pointer) -> void:
 
 func _process(_delta: float) -> void:
 	if light_detected:
-		for pointer in pointer_to_light_beam_dictionary:
-			var direction : float = self.get_angle_to(pointer)
-			var light_beam = pointer_to_light_beam_dictionary[pointer]
-			light_beam.rotate(direction)
+		tick_light_beam()
+
+func tick_light_beam() -> void:
+	for pointer in pointer_to_light_beam_dictionary:
+		var direction : float = self.get_angle_to(pointer)
+		var light_beam = pointer_to_light_beam_dictionary[pointer]
+		light_beam.rotate(direction)
 
 func emit_light() -> void:
 	for pointer in pointer_to_light_beam_dictionary:

@@ -1,16 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqr1bfhwvveg3"]
+[gd_scene load_steps=6 format=3 uid="uid://dqr1bfhwvveg3"]
 
 [ext_resource type="Script" path="res://src/game_objects/star/star.gd" id="1_62vmr"]
 [ext_resource type="Texture2D" uid="uid://5hx4kh6ck0to" path="res://src/game_objects/star/star.png" id="1_ckm8d"]
 [ext_resource type="PackedScene" uid="uid://fqy3wo444y1h" path="res://src/game_objects/light/light.tscn" id="3_feyc6"]
+[ext_resource type="Texture2D" uid="uid://bw6j4k348piya" path="res://src/game_objects/star/star2.png" id="3_qioee"]
 [ext_resource type="PackedScene" uid="uid://ckxap6c7itfg5" path="res://src/game_objects/light/pointer/pointer.tscn" id="4_nhl5g"]
 
 [node name="Star" type="Node2D"]
 script = ExtResource("1_62vmr")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="DragMode" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ckm8d")
+
+[node name="AngleMode" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_qioee")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
@@ -23,7 +29,7 @@ polygon = PackedVector2Array(-22, -3, -9, -9, 0, -22, 9, -9, 22, -3, 14, 7, 15, 
 [node name="Pointer" parent="Light" instance=ExtResource("4_nhl5g")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

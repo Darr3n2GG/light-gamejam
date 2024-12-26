@@ -41,11 +41,11 @@ func tick_light_beam() -> void:
 func emit_light() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
 		var light_beam = pointer_to_light_beam_dictionary[pointer]
-		light_beam.show()
+		light_beam.enable_light_beam()
 	light_detected = true
 	
 func hide_light() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
 		var light_beam = pointer_to_light_beam_dictionary[pointer]
-		light_beam.hide()
+		light_beam.disable_light_beam()
 	light_detected = false

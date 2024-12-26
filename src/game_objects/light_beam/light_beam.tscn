@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgsk2vb2tsgsl"]
 
-[ext_resource type="Script" path="res://src/game_objects/light/light_beam/light_beam.gd" id="1_ydu5k"]
+[ext_resource type="Script" path="res://src/game_objects/light_beam/light_beam.gd" id="1_ydu5k"]
 [ext_resource type="Texture2D" uid="uid://8t7kt27ca5tu" path="res://src/assets/light.png" id="2_08lf6"]
 
 [node name="LightBeam" type="Node2D"]

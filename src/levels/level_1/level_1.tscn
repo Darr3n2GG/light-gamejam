@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fkqwnnheel1k"]
 
 [ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="1_q02bh"]
-[ext_resource type="PackedScene" uid="uid://bgsk2vb2tsgsl" path="res://src/game_objects/light/light_beam/light_beam.tscn" id="2_rwhhr"]
+[ext_resource type="PackedScene" uid="uid://bgsk2vb2tsgsl" path="res://src/game_objects/light_beam/light_beam.tscn" id="2_rwhhr"]
 
 [node name="Level1" type="Node2D"]
 

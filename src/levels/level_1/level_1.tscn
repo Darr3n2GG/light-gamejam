@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fkqwnnheel1k"]
+[gd_scene load_steps=3 format=3 uid="uid://fkqwnnheel1k"]
 
 [ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="1_q02bh"]
+[ext_resource type="PackedScene" uid="uid://bgsk2vb2tsgsl" path="res://src/game_objects/light/light_beam/light_beam.tscn" id="2_rwhhr"]
 
 [node name="Level1" type="Node2D"]
 
@@ -9,3 +10,6 @@ position = Vector2(173, 156)
 
 [node name="Star2" parent="." instance=ExtResource("1_q02bh")]
 position = Vector2(84, 56)
+
+[node name="LightBeam" parent="." instance=ExtResource("2_rwhhr")]
+rotation = 0.523599

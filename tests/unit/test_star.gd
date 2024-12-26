@@ -3,7 +3,7 @@ extends GutTest
 class TestSprite:
 	extends GutTest
 	
-	var star = preload("res://src/test_objects/star/star.tscn").instantiate()
+	var star = preload("res://src/game_objects/star/star.tscn").instantiate()
 	var sprite = star.get_node("Sprite")
 	
 	func after_all():
@@ -29,25 +29,24 @@ class TestSprite:
 		var region = sprite.region_enabled
 		assert_false(region, "Sprite has region enabled.")
 		
-var star = preload("res://src/test_objects/star/star.tscn").instantiate()
+var star = preload("res://src/game_objects/star/star.tscn").instantiate()
 
 func after_all():
 	star.queue_free()
 	gut.p("Freed orphans.")
-			
-func test_star_selected() -> void:
-	pending()
-	
-func test_star_deselected() -> void:
-	pending()
 	
 func test_star_state_changed() -> void:
+	#var expected = star.ActionStates.ANGLE
+	#star.change_state()
+	#var got = star.action_state
+	#assert_eq(got, expected, "Star failed to change state.")
 	pending()
 	
 func test_star_draggable() -> void:
+	#star.reset_state()
+	#var sender = InputSender.new(star)
+	#sender.left_mouse_down
 	pending()
 	
 func test_star_rotatable() -> void:
 	pending()
-	
-	

@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 
 func tick_light_beam() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
-		var direction : float = self.get_angle_to(pointer)
+		var direction : float = self.get_angle_to(pointer.global_position)
 		var light_beam = pointer_to_light_beam_dictionary[pointer]
 		light_beam.rotate(direction)
 

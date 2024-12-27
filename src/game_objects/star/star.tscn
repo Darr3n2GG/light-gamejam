@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqr1bfhwvveg3"]
 
 [ext_resource type="Script" path="res://src/game_objects/star/star.gd" id="1_62vmr"]
-[ext_resource type="Texture2D" uid="uid://5hx4kh6ck0to" path="res://src/game_objects/star/star.png" id="1_ckm8d"]
+[ext_resource type="Texture2D" uid="uid://5hx4kh6ck0to" path="res://src/assets/star.png" id="1_ckm8d"]
 [ext_resource type="PackedScene" uid="uid://fqy3wo444y1h" path="res://src/game_objects/light_emitter/light_emitter.tscn" id="3_rmhw1"]
 [ext_resource type="PackedScene" uid="uid://ckxap6c7itfg5" path="res://src/game_objects/light_emitter/pointer/pointer.tscn" id="4_77k1o"]
 

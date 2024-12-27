@@ -60,3 +60,7 @@ LeftClick={
 2d_physics/layer_1="star"
 2d_physics/layer_2="obstacle"
 2d_physics/layer_3="border"
+
+[rendering]
+
+viewport/hdr_2d=true

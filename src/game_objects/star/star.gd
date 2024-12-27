@@ -3,13 +3,15 @@ class_name Star
 
 @onready var mouse_click_timer = $Timer
 @onready var sprite = $Sprite
-var drag_sprite = load("res://src/game_objects/star/star.png")
-var angle_sprite = load("res://src/game_objects/star/star2.png")
+@onready var light_emitter = $LightEmitter
+var drag_sprite = load("res://src/assets/star.png")
+var angle_sprite = load("res://src/assets/star2.png")
 
 var touching_mouse : bool = false
 var holding_mouse : bool = false
 enum ActionStates { DRAG, ANGLE }
 var action_state : ActionStates = ActionStates.DRAG
+var light_enabled : bool = false
 
 func _input(event) -> void:
 	if event.is_action_pressed("LeftClick"):
@@ -62,4 +64,13 @@ func execute_action() -> void:
 		var angle_of_self_to_mouse = self.get_angle_to(get_global_mouse_position()) + 1.570796
 		# 1.570796 is 90 degrees in radian
 		rotate(angle_of_self_to_mouse)
+		
+func emit_light() -> void:
+	light_emitter.emit_light()
+	light_enabled = true
+	
+func hide_light() -> void:
+	light_emitter.hide_light()
+	light_enabled = false
+	
 			

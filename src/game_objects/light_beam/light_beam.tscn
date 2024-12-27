@@ -7,17 +7,16 @@
 script = ExtResource("1_ydu5k")
 
 [node name="RayCast" type="RayCast2D" parent="."]
-target_position = Vector2(2000, 0)
+target_position = Vector2(2500, 0)
 collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_08lf6")
 centered = false
-offset = Vector2(0, -8.5)
+offset = Vector2(0, -1)
 region_enabled = true
-region_rect = Rect2(0, 15, 0, 17)
+region_rect = Rect2(0, 25, 0, 2.5)
 
 [node name="EndPoint" type="Marker2D" parent="."]

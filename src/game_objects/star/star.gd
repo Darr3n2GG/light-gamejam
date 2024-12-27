@@ -9,9 +9,9 @@ var angle_sprite = load("res://src/assets/star2.png")
 
 var touching_mouse : bool = false
 var holding_mouse : bool = false
+var light_enabled : bool = false
 enum ActionStates { DRAG, ANGLE }
 var action_state : ActionStates = ActionStates.DRAG
-var light_enabled : bool = false
 
 func _input(event) -> void:
 	if event.is_action_pressed("LeftClick"):

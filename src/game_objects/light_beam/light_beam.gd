@@ -14,21 +14,22 @@ func _process(_delta: float) -> void:
 		detect_star()
 	else:
 		end_point.global_position = raycast.target_position
+		if check_collided_star_light_enabled():
+			collided_star.hide_light()
 	sprite.region_rect.end.x = end_point.global_position.length() * 1/sprite.scale.x
-	
+
+func check_collided_star_light_enabled() -> bool:
+	if collided_star == null:
+		return false
+	else:
+		return collided_star.light_enabled
+
 func detect_star() -> void:
 	var collider = raycast.get_collider().get_parent()
-	if check_collider_is_star_and_not_light_enabled():
+	if collider is Star and check_collided_star_light_enabled() == false:
 		collided_star = collider
-		emit_light_of_collided_star()
-			
-func check_collider_is_star_and_not_light_enabled() -> bool:
-	var collider = raycast.get_collider().get_parent()
-	if collider is Star:
-		return not collider.light_enabled
-	else:
-		return false
-
+		collided_star.emit_light()
+		
 func emit_light_of_collided_star() -> void:
 	var collider = raycast.get_collider().get_parent()
 	if collider == collided_star:
@@ -42,5 +43,5 @@ func enable_light_beam() -> void:
 		
 func disable_light_beam() -> void:
 	light_beam_enabled = false
-	self.target_position.y = 0
+	raycast.target_position.y = 0
 	self.hide()

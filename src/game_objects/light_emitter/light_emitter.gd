@@ -2,12 +2,15 @@ extends Node2D
 class_name LightEmitter
 
 @onready var light_beam_resource : Resource = preload("res://src/game_objects/light_beam/light_beam.tscn")
+@export var exceptions : Array[CollisionObject2D]
+
 var number_of_pointers : int
 var light_detected : bool = false
 var pointer_to_light_beam_dictionary : Dictionary = {}
 
 
 func _ready() -> void:
+	set_process(false)
 	var pointers = get_children()
 	for pointer in pointers:
 		if pointer is not Pointer:
@@ -21,7 +24,13 @@ func _ready() -> void:
 func add_light_beam() -> void:
 	var light_beam_instance = light_beam_resource.instantiate()
 	light_beam_instance.hide()
+	if exceptions:
+		add_exception_to_light_beam(light_beam_instance)
 	add_child(light_beam_instance)
+	
+func add_exception_to_light_beam(instance : LightBeam):
+	for exception in exceptions:
+		instance.get_child(0).add_exception(exception)
 	
 func map_pointer_to_light_beam(pointer : Pointer) -> void:
 	var light_beam_index = number_of_pointers + pointer_to_light_beam_dictionary.size()
@@ -29,8 +38,7 @@ func map_pointer_to_light_beam(pointer : Pointer) -> void:
 	pointer_to_light_beam_dictionary[pointer] = light_beam
 
 func _process(_delta: float) -> void:
-	if light_detected:
-		tick_light_beam()
+	tick_light_beam()
 
 func tick_light_beam() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
@@ -42,10 +50,10 @@ func emit_light() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
 		var light_beam = pointer_to_light_beam_dictionary[pointer]
 		light_beam.enable_light_beam()
-	light_detected = true
+	set_process(true)
 	
 func hide_light() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
 		var light_beam = pointer_to_light_beam_dictionary[pointer]
 		light_beam.disable_light_beam()
-	light_detected = false
+	set_process(false)

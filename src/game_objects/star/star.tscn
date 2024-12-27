@@ -23,7 +23,8 @@ polygon = PackedVector2Array(-22, -3, -9, -9, 0, -22, 9, -9, 22, -3, 14, 7, 15, 
 wait_time = 0.2
 one_shot = true
 
-[node name="LightEmitter" parent="." instance=ExtResource("3_rmhw1")]
+[node name="LightEmitter" parent="." node_paths=PackedStringArray("exceptions") instance=ExtResource("3_rmhw1")]
+exceptions = [NodePath("../Area2D")]
 
 [node name="Pointer" parent="LightEmitter" instance=ExtResource("4_77k1o")]
 position = Vector2(0, -22)

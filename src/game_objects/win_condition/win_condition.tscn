@@ -6,6 +6,7 @@
 size = Vector2(16, 32)
 
 [node name="WinCondition" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_iqn5p")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -4,8 +4,8 @@ class_name Star
 @onready var mouse_click_timer = $Timer
 @onready var sprite = $Sprite
 @onready var light_emitter = $LightEmitter
-var drag_sprite = load("res://src/assets/star.png")
-var angle_sprite = load("res://src/assets/star2.png")
+var drag_sprite = preload("res://src/assets/star.png")
+var angle_sprite = preload("res://src/assets/star2.png")
 
 var touching_mouse : bool = false
 var holding_mouse : bool = false

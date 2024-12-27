@@ -5,18 +5,23 @@ class_name LightEmitter
 @export var exceptions : Array[CollisionObject2D]
 
 var number_of_pointers : int
-var light_detected : bool = false
 var pointer_to_light_beam_dictionary : Dictionary = {}
 
 
 func _ready() -> void:
 	set_process(false)
+	check_children_are_pointers()
+	number_of_pointers = get_child_count()
+	setup()
+		
+func check_children_are_pointers() -> void:
 	var pointers = get_children()
 	for pointer in pointers:
 		if pointer is not Pointer:
 			push_error("Children " + pointer.name + " is not a pointer.")
-	number_of_pointers = get_child_count()
-	
+			
+func setup() -> void:
+	var pointers = get_children()
 	for pointer in pointers:
 		add_light_beam()
 		map_pointer_to_light_beam(pointer)
@@ -42,7 +47,7 @@ func _process(_delta: float) -> void:
 
 func tick_light_beam() -> void:
 	for pointer in pointer_to_light_beam_dictionary:
-		var direction : float = self.get_angle_to(pointer.global_position)
+		var direction : float = self.get_angle_to(pointer.position)
 		var light_beam = pointer_to_light_beam_dictionary[pointer]
 		light_beam.rotate(direction)
 

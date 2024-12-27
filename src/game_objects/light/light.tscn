@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://fqy3wo444y1h"]
-
-[ext_resource type="Script" path="res://src/game_objects/light/light.gd" id="1_8seeq"]
-
-[node name="Light" type="Node2D"]
-script = ExtResource("1_8seeq")

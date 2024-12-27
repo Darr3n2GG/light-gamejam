@@ -1,7 +1,7 @@
 extends Node2D
-class_name Light
+class_name LightEmitter
 
-@onready var light_beam_resource : Resource = preload("res://src/game_objects/light/light_beam/light_beam.tscn")
+@onready var light_beam_resource : Resource = preload("res://src/game_objects/light_beam/light_beam.tscn")
 var number_of_pointers : int
 var light_detected : bool = false
 var pointer_to_light_beam_dictionary : Dictionary = {}

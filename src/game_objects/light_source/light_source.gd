@@ -12,8 +12,7 @@ func _input(event):
 
 func _process(_delta):
 	if selected:
-		var angle_of_self_to_mouse = self.get_angle_to(get_global_mouse_position())
-		rotate(angle_of_self_to_mouse)
+		look_at(get_global_mouse_position())
 
 func _on_area_2d_mouse_entered():
 	touching_mouse = true

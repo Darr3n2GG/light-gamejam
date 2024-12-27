@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://fkqwnnheel1k"]
+[gd_scene load_steps=4 format=3 uid="uid://fkqwnnheel1k"]
 
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/WhatsApp Image 2024-12-27 at 22.58.17_dc0ca617.jpg" id="1_b1t4i"]
 [ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="1_q02bh"]
 [ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_ihd6o"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="WhatsAppImage2024-12-27At22_58_17Dc0Ca617" type="Sprite2D" parent="."]
+texture = ExtResource("1_b1t4i")
+centered = false
 
 [node name="Star" parent="." instance=ExtResource("1_q02bh")]
 position = Vector2(173, 156)

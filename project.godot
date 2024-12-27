@@ -23,6 +23,11 @@ buses/default_bus_layout="res://src/assets/default_bus_layout.tres"
 Utilities="*res://src/lib/utilities/utilities.tscn"
 AudioManager="*res://src/lib/audio_manager/audio_manager.tscn"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=960
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")
@@ -60,6 +65,7 @@ LeftClick={
 2d_physics/layer_1="star"
 2d_physics/layer_2="obstacle"
 2d_physics/layer_3="border"
+2d_physics/layer_4="mouse"
 
 [rendering]
 

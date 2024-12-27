@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://byxml2oexm302"]
 
 [ext_resource type="Script" path="res://src/game_objects/light_source/light_source.gd" id="1_ff775"]
-[ext_resource type="PackedScene" uid="uid://bgsk2vb2tsgsl" path="res://src/game_objects/light/light_beam/light_beam.tscn" id="2_kjal1"]
+[ext_resource type="PackedScene" uid="uid://bgsk2vb2tsgsl" path="res://src/game_objects/light_beam/light_beam.tscn" id="2_kjal1"]
 [ext_resource type="Texture2D" uid="uid://o4mo2w2ftx1v" path="res://addons/gut/images/yellow.png" id="3_d3yd8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0flg0"]

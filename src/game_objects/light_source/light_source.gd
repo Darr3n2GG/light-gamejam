@@ -1,4 +1,5 @@
 extends Node2D
+class_name LightSource
 
 var selected: bool = false
 var touching_mouse: bool = false
@@ -9,10 +10,9 @@ func _input(event):
 	elif event.is_action_released("LeftClick"):
 		selected = false
 
-func _process(delta):
+func _process(_delta):
 	if selected:
 		var angle_of_self_to_mouse = self.get_angle_to(get_global_mouse_position())
-		# 1.570796 is 90 degrees in radian
 		rotate(angle_of_self_to_mouse)
 
 func _on_area_2d_mouse_entered():

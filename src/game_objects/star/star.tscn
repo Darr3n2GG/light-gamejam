@@ -26,6 +26,7 @@ one_shot = true
 [node name="LightEmitter" parent="." instance=ExtResource("3_rmhw1")]
 
 [node name="Pointer" parent="LightEmitter" instance=ExtResource("4_77k1o")]
+position = Vector2(0, -22)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -20,16 +20,16 @@ func _input(event) -> void:
 		left_click_released()
 		
 func left_click_pressed() -> void:
-	if touching_mouse:
+	if touching_mouse: #check whether click or hold
 		mouse_click_timer.start()
-	else:
+	else: #back to drag mode
 		reset_state()
 		
 func reset_state() -> void:
 	action_state = ActionStates.DRAG
 	sprite.texture = drag_sprite
 			
-func left_click_released() -> void:
+func left_click_released() -> void: #define click
 	var is_clicked = mouse_click_timer.time_left > 0
 	if is_clicked and touching_mouse:
 		change_state()
@@ -44,7 +44,7 @@ func change_state() -> void:
 		action_state = ActionStates.DRAG
 		sprite.texture = drag_sprite
 		
-func _on_timer_timeout() -> void:
+func _on_timer_timeout() -> void: #define hold
 	holding_mouse = true
 		
 func _on_area_2d_mouse_entered() -> void:
@@ -56,8 +56,8 @@ func _on_area_2d_mouse_exited() -> void:
 func _process(_delta) -> void:
 	if holding_mouse:
 		execute_action()
-			
-func execute_action() -> void:
+
+func execute_action() -> void: #execute drag or rotate
 	if action_state == ActionStates.DRAG:
 		global_position = get_global_mouse_position()
 	else:

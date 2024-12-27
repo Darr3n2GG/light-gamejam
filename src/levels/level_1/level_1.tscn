@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/WhatsApp Image 2024-12-27 at 22.58.17_dc0ca617.jpg" id="1_b1t4i"]
 [ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="1_q02bh"]
 [ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_ihd6o"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_yqn6j"]
 
 [node name="Level1" type="Node2D"]
 
@@ -18,3 +19,6 @@ position = Vector2(348, 64)
 
 [node name="LightSource" parent="." instance=ExtResource("2_ihd6o")]
 rotation = 0.50091
+
+[node name="WinCondition" parent="." instance=ExtResource("3_yqn6j")]
+position = Vector2(1153, 585)

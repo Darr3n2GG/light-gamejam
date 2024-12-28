@@ -13,5 +13,10 @@ func detect_star(collider : CollisionObject2D) -> void:
 			collided_star.hide_light()
 			collided_star = null
 
+func hide_light_of_collided_star() -> void:
+	if collided_star != null:
+		collided_star.hide_light()
+		collided_star = null
+
 		
 	

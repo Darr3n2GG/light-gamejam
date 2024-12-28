@@ -21,6 +21,7 @@ func enable_light_beam() -> void:
 	self.show()
 		
 func disable_light_beam() -> void:
+	star_detecter.hide_light_of_collided_star()
 	light_beam_enabled = false
 	self.target_position.y = 0
 	self.enabled = false

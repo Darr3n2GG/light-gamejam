@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dirtro2dx34fm"]
+[gd_scene load_steps=9 format=3 uid="uid://brbul67lny75c"]
 
-[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_1swi0"]
-[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_udqlh"]
-[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_t4w50"]
-[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_sn703"]
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_l80pn"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_3vbx7"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_gn5rj"]
+[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_jrwjk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
 size = Vector2(38, 107)
@@ -22,16 +22,17 @@ background_mode = 3
 glow_enabled = true
 glow_bloom = 0.2
 
-[node name="Level0" type="Node2D"]
+[node name="Level1" type="Node2D"]
+metadata/level = 0
 
 [node name="TempBg" type="Sprite2D" parent="."]
-texture = ExtResource("1_1swi0")
+texture = ExtResource("1_l80pn")
 centered = false
 
-[node name="LightSource" parent="." instance=ExtResource("3_t4w50")]
+[node name="LightSource" parent="." instance=ExtResource("2_3vbx7")]
 position = Vector2(126, 119)
 
-[node name="WinCondition" parent="." instance=ExtResource("2_udqlh")]
+[node name="WinCondition" parent="." instance=ExtResource("3_gn5rj")]
 position = Vector2(928, 697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
@@ -39,7 +40,6 @@ shape = SubResource("RectangleShape2D_id6wr")
 
 [node name="Timer" type="Timer" parent="WinCondition"]
 wait_time = 2.0
-one_shot = true
 
 [node name="WinLight" type="PointLight2D" parent="."]
 position = Vector2(1103, 800)
@@ -47,7 +47,7 @@ scale = Vector2(4.85938, 4.89062)
 color = Color(1, 1, 0, 1)
 energy = 3.5
 texture = SubResource("GradientTexture2D_612kl")
-script = ExtResource("4_sn703")
+script = ExtResource("4_jrwjk")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.5

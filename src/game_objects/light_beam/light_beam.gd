@@ -2,6 +2,7 @@ extends RayCast2D
 class_name LightBeam
 
 var star_detecter = StarDetecter.new()
+var win_detecter = WinDetecter.new()
 
 var light_beam_enabled : bool = false
 
@@ -11,6 +12,7 @@ func _process(_delta: float) -> void:
 		cast_point = (get_collision_point() - global_position).length()
 		var collider = get_collider()
 		star_detecter.detect_star(collider)
+		win_detecter.detect_win_condition(collider)
 	else:
 		star_detecter.hide_light_of_star()
 	$Line2D.points[1].x = cast_point

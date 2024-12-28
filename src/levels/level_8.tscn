@@ -121,6 +121,12 @@ position = Vector2(306, 153)
 [node name="Star3" parent="." instance=ExtResource("6_td3vo")]
 position = Vector2(704, 143)
 
+[node name="Star4" parent="." instance=ExtResource("6_td3vo")]
+position = Vector2(625, 120)
+
+[node name="Star5" parent="." instance=ExtResource("6_td3vo")]
+position = Vector2(766, 94)
+
 [node name="Obstacle" parent="." instance=ExtResource("5_a4ob0")]
 position = Vector2(786, 227)
 scale = Vector2(0.7, 0.7)

@@ -12,6 +12,7 @@ func win() -> void:
 	light_entered.emit()
 	sprite.texture = bright_sprite
 	$Timer.start()
+	AudioManager.play_button_sound()
 	light_has_entered = true
 		
 func next_level() -> void:

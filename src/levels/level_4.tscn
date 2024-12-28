@@ -133,7 +133,9 @@ offset_left = 956.0
 offset_top = 215.0
 offset_right = 1261.0
 offset_bottom = 470.0
-text = "Don't throw the stars out of the window, there's no extra star for you"
+text = "Don't throw the stars out of the window, there's no extra star for you.
+
+dev note : ?????"
 fit_content = true
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]

@@ -124,7 +124,7 @@ offset_left = 944.0
 offset_top = 217.0
 offset_right = 1259.0
 offset_bottom = 470.0
-text = "No worries, I won't put impossible level!"
+text = "No worries, I won't put an impossible level!"
 fit_content = true
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]

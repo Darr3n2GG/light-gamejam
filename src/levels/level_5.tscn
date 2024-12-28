@@ -127,7 +127,9 @@ offset_left = 945.0
 offset_top = 219.0
 offset_right = 1254.0
 offset_bottom = 288.0
-text = "Cloud and star? Could they be in the same place?"
+text = "Cloud and star? Can they be in the same place?
+
+dev note : Don't worry I am confused to.."
 fit_content = true
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]

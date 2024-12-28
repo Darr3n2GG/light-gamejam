@@ -119,7 +119,7 @@ position = Vector2(522, 240)
 position = Vector2(428, 310)
 
 [node name="Obstacle" parent="." instance=ExtResource("6_ds2au")]
-position = Vector2(467, 501)
+position = Vector2(592, 501)
 scale = Vector2(2, 2)
 
 [node name="Obstacle2" parent="." instance=ExtResource("6_ds2au")]
@@ -131,7 +131,6 @@ offset_left = 946.0
 offset_top = 220.0
 offset_right = 1254.0
 offset_bottom = 496.0
-text = "Clouds only blocks lights from outside."
 fit_content = true
 
 [node name="Obstacle3" parent="." instance=ExtResource("6_ds2au")]

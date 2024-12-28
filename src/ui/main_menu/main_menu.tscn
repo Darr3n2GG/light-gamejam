@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc388hkklqvvc"]
+[gd_scene load_steps=5 format=3 uid="uid://dc388hkklqvvc"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://src/assets/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
 [ext_resource type="Script" path="res://src/ui/main_menu/main_menu.gd" id="1_jpfie"]
+[ext_resource type="Texture2D" uid="uid://sn1ihx4awhvd" path="res://src/assets/main_menu.jpg" id="3_q377e"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://src/ui/settings/settings.tscn" id="3_ysliv"]
 
 [node name="MainMenu" type="Node2D"]
@@ -17,7 +18,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jpfie")
 
+[node name="MainMenu" type="Sprite2D" parent="UI/MainMenu"]
+scale = Vector2(1, 1.33194)
+texture = ExtResource("3_q377e")
+centered = false
+
 [node name="ColorRect" type="ColorRect" parent="UI/MainMenu"]
+modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

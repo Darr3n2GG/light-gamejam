@@ -117,7 +117,9 @@ offset_left = 948.0
 offset_top = 211.0
 offset_right = 1256.0
 offset_bottom = 533.0
-text = "Put two stars together, you will get a constant source."
+text = "Put two stars together, you will get a constant source.
+
+Used to work.. anywayss"
 fit_content = true
 
 [node name="Star" parent="." instance=ExtResource("5_k84wj")]

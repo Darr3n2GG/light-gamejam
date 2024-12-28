@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dirtro2dx34fm"]
+[gd_scene load_steps=15 format=3 uid="uid://u01q23kuk1h5"]
 
-[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_1swi0"]
-[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_udqlh"]
-[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_t4w50"]
-[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_sn703"]
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_br5n7"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_ukdr1"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_0pvok"]
+[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_pj05w"]
+[ext_resource type="PackedScene" uid="uid://b5cf1hdl4ln25" path="res://src/game_objects/obstacle/obstacle.tscn" id="5_a4ob0"]
+[ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="6_td3vo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
 size = Vector2(38, 107)
@@ -39,13 +41,13 @@ distance = -1280.0
 [node name="Level0" type="Node2D"]
 
 [node name="TempBg" type="Sprite2D" parent="."]
-texture = ExtResource("1_1swi0")
+texture = ExtResource("1_br5n7")
 centered = false
 
-[node name="LightSource" parent="." instance=ExtResource("3_t4w50")]
+[node name="LightSource" parent="." instance=ExtResource("2_ukdr1")]
 position = Vector2(126, 119)
 
-[node name="WinCondition" parent="." instance=ExtResource("2_udqlh")]
+[node name="WinCondition" parent="." instance=ExtResource("3_0pvok")]
 position = Vector2(928, 697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
@@ -61,7 +63,7 @@ scale = Vector2(4.85938, 4.89062)
 color = Color(1, 1, 0, 1)
 energy = 3.5
 texture = SubResource("GradientTexture2D_612kl")
-script = ExtResource("4_sn703")
+script = ExtResource("4_pj05w")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.5
@@ -85,7 +87,7 @@ offset_right = 1244.0
 offset_bottom = 64.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[color=#efffaf] LEVEL"
+text = "[color=#efffaf] LEVEL 6"
 fit_content = true
 
 [node name="Border" type="Area2D" parent="."]
@@ -103,6 +105,63 @@ shape = SubResource("WorldBoundaryShape2D_fgubi")
 
 [node name="Left" type="CollisionShape2D" parent="Border"]
 shape = SubResource("WorldBoundaryShape2D_70nqy")
+
+[node name="Star" parent="." instance=ExtResource("6_td3vo")]
+position = Vector2(551, 164)
+
+[node name="Star2" parent="." instance=ExtResource("6_td3vo")]
+position = Vector2(306, 153)
+
+[node name="Star3" parent="." instance=ExtResource("6_td3vo")]
+position = Vector2(704, 143)
+
+[node name="Obstacle" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(786, 227)
+scale = Vector2(0.7, 0.7)
+
+[node name="Obstacle2" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(270, 275)
+scale = Vector2(0.7, 0.7)
+
+[node name="Obstacle3" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(462, 229)
+scale = Vector2(0.7, 0.7)
+
+[node name="Obstacle4" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(619, 241)
+scale = Vector2(0.7, 0.7)
+
+[node name="Obstacle10" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(99, 277)
+scale = Vector2(0.8, 0.8)
+
+[node name="Obstacle5" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(374, 473)
+
+[node name="Obstacle6" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(422, 708)
+
+[node name="Obstacle7" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(804, 531)
+
+[node name="Obstacle8" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(90, 415)
+
+[node name="Obstacle9" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(893, 686)
+
+[node name="Obstacle11" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(112, 615)
+
+[node name="Obstacle12" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(417, 583)
+
+[node name="Obstacle13" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(598, 535)
+
+[node name="Obstacle14" parent="." instance=ExtResource("5_a4ob0")]
+position = Vector2(739, 797)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
 [connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]

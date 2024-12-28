@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dirtro2dx34fm"]
+[gd_scene load_steps=15 format=3 uid="uid://dt8yw8xcgn58k"]
 
-[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_1swi0"]
-[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_udqlh"]
-[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_t4w50"]
-[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_sn703"]
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_xqyhs"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_017rh"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_mtrbp"]
+[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_myg4q"]
+[ext_resource type="PackedScene" uid="uid://b5cf1hdl4ln25" path="res://src/game_objects/obstacle/obstacle.tscn" id="5_0i7f3"]
+[ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="6_1tapg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
 size = Vector2(38, 107)
@@ -39,13 +41,13 @@ distance = -1280.0
 [node name="Level0" type="Node2D"]
 
 [node name="TempBg" type="Sprite2D" parent="."]
-texture = ExtResource("1_1swi0")
+texture = ExtResource("1_xqyhs")
 centered = false
 
-[node name="LightSource" parent="." instance=ExtResource("3_t4w50")]
+[node name="LightSource" parent="." instance=ExtResource("2_017rh")]
 position = Vector2(126, 119)
 
-[node name="WinCondition" parent="." instance=ExtResource("2_udqlh")]
+[node name="WinCondition" parent="." instance=ExtResource("3_mtrbp")]
 position = Vector2(928, 697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
@@ -61,7 +63,7 @@ scale = Vector2(4.85938, 4.89062)
 color = Color(1, 1, 0, 1)
 energy = 3.5
 texture = SubResource("GradientTexture2D_612kl")
-script = ExtResource("4_sn703")
+script = ExtResource("4_myg4q")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.5
@@ -85,7 +87,7 @@ offset_right = 1244.0
 offset_bottom = 64.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[color=#efffaf] LEVEL"
+text = "[color=#efffaf] LEVEL 3"
 fit_content = true
 
 [node name="Border" type="Area2D" parent="."]
@@ -103,6 +105,24 @@ shape = SubResource("WorldBoundaryShape2D_fgubi")
 
 [node name="Left" type="CollisionShape2D" parent="Border"]
 shape = SubResource("WorldBoundaryShape2D_70nqy")
+
+[node name="Star" parent="." instance=ExtResource("6_1tapg")]
+position = Vector2(557, 294)
+
+[node name="Star2" parent="." instance=ExtResource("6_1tapg")]
+position = Vector2(740, 335)
+
+[node name="Obstacle" parent="." instance=ExtResource("5_0i7f3")]
+position = Vector2(453, 448)
+scale = Vector2(4, 0.7)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 945.0
+offset_top = 219.0
+offset_right = 1254.0
+offset_bottom = 288.0
+text = "Cloud and star? Could them be in the same place?"
+fit_content = true
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
 [connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]

@@ -122,5 +122,13 @@ position = Vector2(142, 294)
 [node name="Obstacle3" parent="." instance=ExtResource("6_xl7kc")]
 position = Vector2(292, 292)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 956.0
+offset_top = 215.0
+offset_right = 1261.0
+offset_bottom = 470.0
+text = "Don't throw the stars out of the window, there's no extra star for you"
+fit_content = true
+
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
 [connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]

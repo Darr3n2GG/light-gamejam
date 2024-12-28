@@ -45,9 +45,6 @@ metadata/level = 0
 texture = ExtResource("1_orw0s")
 centered = false
 
-[node name="Star" parent="." instance=ExtResource("2_rjvyg")]
-position = Vector2(355, 221)
-
 [node name="LightSource" parent="." instance=ExtResource("3_x5jx5")]
 position = Vector2(126, 119)
 
@@ -112,14 +109,18 @@ offset_left = 946.0
 offset_top = 215.0
 offset_right = 1180.0
 offset_bottom = 255.0
-text = "No more tutorial. Have fun!"
+bbcode_enabled = true
+text = "The stars will turn back to [color=#ffff00]drag mode[/color] after deselect. Have fun!"
 fit_content = true
 
-[node name="Obstacle" parent="." instance=ExtResource("6_le5mb")]
-position = Vector2(769, 638)
+[node name="Star" parent="." instance=ExtResource("2_rjvyg")]
+position = Vector2(355, 221)
 
 [node name="Star2" parent="." instance=ExtResource("2_rjvyg")]
 position = Vector2(366, 531)
+
+[node name="Obstacle" parent="." instance=ExtResource("6_le5mb")]
+position = Vector2(769, 638)
 
 [node name="Obstacle2" parent="." instance=ExtResource("6_le5mb")]
 position = Vector2(167, 273)

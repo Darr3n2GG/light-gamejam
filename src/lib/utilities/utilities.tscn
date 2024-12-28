@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://x8khrexoscpv"]
+[gd_scene load_steps=5 format=3 uid="uid://x8khrexoscpv"]
 
 [ext_resource type="Script" path="res://src/lib/utilities/Utilities.gd" id="1_1a5s3"]
 [ext_resource type="PackedScene" uid="uid://dc388hkklqvvc" path="res://src/ui/main_menu/main_menu.tscn" id="2_2wsm8"]
-[ext_resource type="PackedScene" uid="uid://fkqwnnheel1k" path="res://src/levels/level_1/level_1.tscn" id="4_kctc1"]
+[ext_resource type="PackedScene" uid="uid://dirtro2dx34fm" path="res://src/levels/level_2.tscn" id="4_gddw1"]
+[ext_resource type="PackedScene" uid="uid://fkqwnnheel1k" path="res://src/levels/level_1.tscn" id="4_kctc1"]
 
 [node name="Utilities" type="Node"]
 script = ExtResource("1_1a5s3")
-scenes = Array[PackedScene]([ExtResource("2_2wsm8"), ExtResource("4_kctc1")])
+scenes = Array[PackedScene]([ExtResource("2_2wsm8"), ExtResource("4_kctc1"), ExtResource("4_gddw1")])
 scene_map = {
 "MainMenu": 0,
-"level_1": 1
+"level_1": 1,
+"level_2": 2
 }

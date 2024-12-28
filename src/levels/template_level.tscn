@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dirtro2dx34fm"]
+[gd_scene load_steps=13 format=3 uid="uid://dirtro2dx34fm"]
 
 [ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_1swi0"]
 [ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_udqlh"]
@@ -9,18 +9,32 @@
 size = Vector2(38, 107)
 
 [sub_resource type="Gradient" id="Gradient_u8ua0"]
-offsets = PackedFloat32Array(0, 0.0231214)
+offsets = PackedFloat32Array(0, 0.00578035)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_612kl"]
 gradient = SubResource("Gradient_u8ua0")
 fill = 1
-fill_to = Vector2(0.75, 0.75)
+fill_from = Vector2(0, 0.2)
+fill_to = Vector2(0.9, 0.7)
 
 [sub_resource type="Environment" id="Environment_e2vlp"]
 background_mode = 3
 glow_enabled = true
 glow_bloom = 0.2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o7m"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_200xy"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgubi"]
+distance = -960.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70nqy"]
+normal = Vector2(-1, 0)
+distance = -1280.0
 
 [node name="Level0" type="Node2D"]
 
@@ -56,16 +70,15 @@ blend_mode = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e2vlp")
 
-[connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
-[connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]
-
 [node name="Building" type="Area2D" parent="."]
 visible = false
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
 polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="LevelText" type="RichTextLabel" parent="."]
 offset_left = 951.0
 offset_top = 24.0
 offset_right = 1244.0
@@ -74,3 +87,22 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[color=#efffaf] LEVEL "
 fit_content = true
+
+[node name="Border" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Down" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_e2o7m")
+
+[node name="Right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_200xy")
+
+[node name="Up" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_fgubi")
+
+[node name="Left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_70nqy")
+
+[connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
+[connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]

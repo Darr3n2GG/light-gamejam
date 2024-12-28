@@ -58,3 +58,19 @@ environment = SubResource("Environment_e2vlp")
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
 [connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]
+
+[node name="Building" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
+polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 951.0
+offset_top = 24.0
+offset_right = 1244.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=#efffaf] LEVEL "
+fit_content = true

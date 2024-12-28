@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://src/game_objects/light_emitter/pointer/pointer.gd" id="1_f5arr"]
 
-[node name="Pointer" type="Node2D"]
+[node name="Pointer" type="Marker2D"]
 script = ExtResource("1_f5arr")

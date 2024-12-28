@@ -49,6 +49,7 @@ offset_top = -48.0
 offset_right = 17.0
 offset_bottom = -25.0
 
+[connection signal="release_mouse_after_hold" from="." to="." method="_on_release_mouse_after_hold"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

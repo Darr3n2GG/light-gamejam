@@ -86,9 +86,10 @@ blend_mode = 1
 environment = SubResource("Environment_e2vlp")
 
 [node name="Building" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
-visible = false
 polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
 
 [node name="Tutorial" type="RichTextLabel" parent="."]

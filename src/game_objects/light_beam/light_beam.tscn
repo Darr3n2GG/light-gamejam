@@ -4,12 +4,14 @@
 
 [node name="LightBeam" type="RayCast2D"]
 target_position = Vector2(2500, 0)
-collision_mask = 7
+collision_mask = 23
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("1_ydu5k")
 
 [node name="Line2D" type="Line2D" parent="."]
+modulate = Color(1, 1, 1, 0.0627451)
+self_modulate = Color(10, 10, 10, 1)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
-default_color = Color(1, 0.972549, 0, 1)
+default_color = Color(1, 1, 0.0862745, 1)

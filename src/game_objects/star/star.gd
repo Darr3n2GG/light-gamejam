@@ -5,12 +5,12 @@ class_name Star
 @onready var sprite = $Sprite
 @onready var light_emitter = $LightEmitter
 var drag_sprite = preload("res://src/assets/star.png")
-var angle_sprite = preload("res://src/assets/star2.png")
+var rotate_sprite = preload("res://src/assets/star2.png")
 
 var touching_mouse : bool = false
 var holding_mouse : bool = false
 var light_enabled : bool = false
-enum ActionStates { DRAG, ANGLE }
+enum ActionStates { DRAG, ROTATE }
 var action_state : ActionStates = ActionStates.DRAG
 
 func _input(event) -> void:
@@ -38,8 +38,8 @@ func left_click_released() -> void: #define click
 	
 func change_state() -> void:
 	if action_state == ActionStates.DRAG: 
-		action_state = ActionStates.ANGLE
-		sprite.texture = angle_sprite
+		action_state = ActionStates.ROTATE
+		sprite.texture = rotate_sprite
 	else:
 		action_state = ActionStates.DRAG
 		sprite.texture = drag_sprite

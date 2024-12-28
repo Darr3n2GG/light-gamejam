@@ -1,22 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgsk2vb2tsgsl"]
+[gd_scene load_steps=2 format=3 uid="uid://bgsk2vb2tsgsl"]
 
 [ext_resource type="Script" path="res://src/game_objects/light_beam/light_beam.gd" id="1_ydu5k"]
-[ext_resource type="Texture2D" uid="uid://8t7kt27ca5tu" path="res://src/assets/light.png" id="2_08lf6"]
 
-[node name="LightBeam" type="Node2D"]
-script = ExtResource("1_ydu5k")
-
-[node name="RayCast" type="RayCast2D" parent="."]
+[node name="LightBeam" type="RayCast2D"]
 target_position = Vector2(2500, 0)
-collision_mask = 7
+collision_mask = 23
 collide_with_areas = true
 collide_with_bodies = false
+script = ExtResource("1_ydu5k")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_08lf6")
-centered = false
-offset = Vector2(0, -1)
-region_enabled = true
-region_rect = Rect2(0, 25, 0, 2.5)
-
-[node name="EndPoint" type="Marker2D" parent="."]
+[node name="Line2D" type="Line2D" parent="."]
+modulate = Color(1, 1, 1, 0.0627451)
+self_modulate = Color(10, 10, 10, 1)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+default_color = Color(1, 1, 0.0862745, 1)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dirtro2dx34fm"]
+
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_1swi0"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_udqlh"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_t4w50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
+size = Vector2(38, 107)
+
+[sub_resource type="Environment" id="Environment_e2vlp"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.2
+
+[sub_resource type="Gradient" id="Gradient_u8ua0"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_612kl"]
+gradient = SubResource("Gradient_u8ua0")
+fill = 1
+fill_to = Vector2(0.75, 0.75)
+
+[node name="TemplateLevel" type="Node2D"]
+
+[node name="TempBg" type="Sprite2D" parent="."]
+texture = ExtResource("1_1swi0")
+centered = false
+
+[node name="WinCondition" parent="." instance=ExtResource("2_udqlh")]
+position = Vector2(928, 697)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
+shape = SubResource("RectangleShape2D_id6wr")
+
+[node name="LightSource" parent="." instance=ExtResource("3_t4w50")]
+position = Vector2(126, 119)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
+blend_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e2vlp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1103, 800)
+scale = Vector2(4.85938, 4.89062)
+color = Color(1, 1, 0, 1)
+energy = 3.5
+texture = SubResource("GradientTexture2D_612kl")

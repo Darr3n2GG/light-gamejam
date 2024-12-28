@@ -1,23 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqr1bfhwvveg3"]
+[gd_scene load_steps=7 format=3 uid="uid://dqr1bfhwvveg3"]
 
 [ext_resource type="Script" path="res://src/game_objects/star/star.gd" id="1_8jb5j"]
 [ext_resource type="Texture2D" uid="uid://5hx4kh6ck0to" path="res://src/assets/star.png" id="1_ckm8d"]
 [ext_resource type="PackedScene" uid="uid://fqy3wo444y1h" path="res://src/game_objects/light_emitter/light_emitter.tscn" id="3_rmhw1"]
 [ext_resource type="PackedScene" uid="uid://ckxap6c7itfg5" path="res://src/game_objects/light_emitter/pointer/pointer.tscn" id="4_77k1o"]
 
+[sub_resource type="Gradient" id="Gradient_bnke7"]
+offsets = PackedFloat32Array(0, 0.774566)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_21nkw"]
+gradient = SubResource("Gradient_bnke7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Star" type="Node2D"]
 script = ExtResource("1_8jb5j")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_ckm8d")
-
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 3
+collision_layer = 11
 collision_mask = 7
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-22, -3, -9, -9, 0, -22, 9, -9, 22, -3, 14, 7, 15, 21, 0, 16, -15, 21, -14, 7)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_ckm8d")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -28,6 +37,10 @@ exceptions = [NodePath("../Area2D")]
 
 [node name="Pointer" parent="LightEmitter" instance=ExtResource("4_77k1o")]
 position = Vector2(0, -22)
+
+[node name="PointLight" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.270588, 1)
+texture = SubResource("GradientTexture2D_21nkw")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

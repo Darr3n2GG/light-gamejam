@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://brbul67lny75c"]
+[gd_scene load_steps=15 format=3 uid="uid://fqx3y3s7274h"]
 
-[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_l80pn"]
-[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_3vbx7"]
-[ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="2_p7wgu"]
-[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_gn5rj"]
-[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_jrwjk"]
-[ext_resource type="Texture2D" uid="uid://6ql5l446w837" path="res://src/assets/window_dark.png" id="5_3t587"]
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_vqa5l"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_5jt6r"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_itfcu"]
+[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_8ipfu"]
+[ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="5_k84wj"]
+[ext_resource type="PackedScene" uid="uid://b5cf1hdl4ln25" path="res://src/game_objects/obstacle/obstacle.tscn" id="6_y0xwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
 size = Vector2(38, 107)
@@ -38,16 +38,16 @@ distance = -960.0
 normal = Vector2(-1, 0)
 distance = -1280.0
 
-[node name="Level1" type="Node2D"]
+[node name="Level0" type="Node2D"]
 
 [node name="TempBg" type="Sprite2D" parent="."]
-texture = ExtResource("1_4v5e5")
+texture = ExtResource("1_vqa5l")
 centered = false
 
-[node name="LightSource" parent="." instance=ExtResource("2_orxp5")]
+[node name="LightSource" parent="." instance=ExtResource("2_5jt6r")]
 position = Vector2(126, 119)
 
-[node name="WinCondition" parent="." instance=ExtResource("3_jfb6d")]
+[node name="WinCondition" parent="." instance=ExtResource("3_itfcu")]
 position = Vector2(928, 697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
@@ -57,18 +57,13 @@ shape = SubResource("RectangleShape2D_id6wr")
 wait_time = 2.0
 one_shot = true
 
-[node name="Sprite" type="Sprite2D" parent="WinCondition"]
-position = Vector2(0.499992, -1.69277e-05)
-scale = Vector2(0.26, 0.163333)
-texture = ExtResource("5_3t587")
-
 [node name="WinLight" type="PointLight2D" parent="."]
 position = Vector2(1103, 800)
 scale = Vector2(4.85938, 4.89062)
 color = Color(1, 1, 0, 1)
 energy = 3.5
 texture = SubResource("GradientTexture2D_612kl")
-script = ExtResource("4_ixayw")
+script = ExtResource("4_8ipfu")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.5
@@ -78,6 +73,7 @@ blend_mode = 1
 environment = SubResource("Environment_e2vlp")
 
 [node name="Building" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 0
 
@@ -91,7 +87,7 @@ offset_right = 1244.0
 offset_bottom = 64.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[color=#efffaf] TUTORIAL 1"
+text = "[color=#efffaf] LEVEL 10"
 fit_content = true
 
 [node name="Border" type="Area2D" parent="."]
@@ -111,14 +107,37 @@ shape = SubResource("WorldBoundaryShape2D_fgubi")
 shape = SubResource("WorldBoundaryShape2D_70nqy")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 942.0
-offset_top = 218.0
-offset_right = 1255.0
-offset_bottom = 287.0
-text = "Welcome! In this game, you have to point the moonlight to the window in order to win.
-Click on the moon and drag to any direction to control the direction of moonlight.
-"
+offset_left = 948.0
+offset_top = 211.0
+offset_right = 1256.0
+offset_bottom = 533.0
+text = "Put two stars together, you will get a constant source."
 fit_content = true
+
+[node name="Star" parent="." instance=ExtResource("5_k84wj")]
+position = Vector2(451, 168)
+
+[node name="Star2" parent="." instance=ExtResource("5_k84wj")]
+position = Vector2(419, 210)
+
+[node name="Obstacle" parent="." instance=ExtResource("6_y0xwq")]
+position = Vector2(125, 371)
+scale = Vector2(1, 1.4)
+
+[node name="Obstacle2" parent="." instance=ExtResource("6_y0xwq")]
+position = Vector2(400, 390)
+
+[node name="Obstacle3" parent="." instance=ExtResource("6_y0xwq")]
+position = Vector2(678, 488)
+scale = Vector2(1.7, 1.7)
+
+[node name="Obstacle4" parent="." instance=ExtResource("6_y0xwq")]
+position = Vector2(373, 481)
+scale = Vector2(0.7, 0.7)
+
+[node name="Obstacle5" parent="." instance=ExtResource("6_y0xwq")]
+position = Vector2(156, 505)
+scale = Vector2(1, 1.2)
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
 [connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]

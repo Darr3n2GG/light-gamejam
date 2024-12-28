@@ -3,10 +3,15 @@ class_name WinCondition
 
 signal light_entered
 
+@onready var sprite = $Sprite2D
+const dark_sprite = preload("res://src/game_objects/win_condition/window_dark.png")
+const bright_sprite = preload("res://src/game_objects/win_condition/window_bright.png")
+
 var light_has_entered : bool = false
 
 func win() -> void:
 	light_entered.emit()
+	sprite.texture = bright_sprite
 	$Timer.start()
 	light_has_entered = true
 		

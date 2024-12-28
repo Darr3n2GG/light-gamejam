@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c47s3ujkx2qe1"]
+[gd_scene load_steps=8 format=3 uid="uid://c3p6v4188yy5d"]
 
-[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_1swi0"]
-[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_udqlh"]
-[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_t4w50"]
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_0ehep"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="2_ge708"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_3y6xu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
 size = Vector2(38, 107)
@@ -23,16 +23,16 @@ fill_to = Vector2(0.75, 0.75)
 [node name="TemplateLevel" type="Node2D"]
 
 [node name="TempBg" type="Sprite2D" parent="."]
-texture = ExtResource("1_1swi0")
+texture = ExtResource("1_0ehep")
 centered = false
 
-[node name="WinCondition" parent="." instance=ExtResource("2_udqlh")]
+[node name="WinCondition" parent="." instance=ExtResource("2_ge708")]
 position = Vector2(928, 697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
 shape = SubResource("RectangleShape2D_id6wr")
 
-[node name="LightSource" parent="." instance=ExtResource("3_t4w50")]
+[node name="LightSource" parent="." instance=ExtResource("3_3y6xu")]
 position = Vector2(126, 119)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -51,17 +51,27 @@ energy = 3.5
 texture = SubResource("GradientTexture2D_612kl")
 
 [node name="Building" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
+visible = false
 polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 954.0
+offset_top = 223.0
+offset_right = 1255.0
+offset_bottom = 443.0
+text = "Students are preparing for their exams when suddenly a large scale power outage occurs. 
+You are tasked with guiding light towards windows using moonlight to brighten up the area so that they can study.
+Click on the moon and drag to adjust the direction of moonlight."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
 offset_left = 951.0
 offset_top = 24.0
 offset_right = 1244.0
 offset_bottom = 64.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[color=#efffaf] LEVEL "
+text = "[color=#efffaf] LEVEL 1"
 fit_content = true

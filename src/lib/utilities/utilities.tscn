@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://src/lib/utilities/Utilities.gd" id="1_1a5s3"]
 [ext_resource type="PackedScene" uid="uid://dc388hkklqvvc" path="res://src/ui/main_menu/main_menu.tscn" id="2_2wsm8"]
-[ext_resource type="PackedScene" uid="uid://brbul67lny75c" path="res://src/levels/level_1.tscn" id="3_0et4q"]
+[ext_resource type="PackedScene" uid="uid://dk64afnvaog35" path="res://src/levels/tutorial_1.tscn" id="3_1a4ys"]
 
 [node name="Utilities" type="Node"]
 script = ExtResource("1_1a5s3")
-scenes = Array[PackedScene]([ExtResource("2_2wsm8"), ExtResource("3_0et4q")])
+scenes = Array[PackedScene]([ExtResource("2_2wsm8"), ExtResource("3_1a4ys")])
 scene_map = {
 "MainMenu": 0,
 "level_1": 1,

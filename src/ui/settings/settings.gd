@@ -14,8 +14,6 @@ func reset_focus():
 		$Video.grab_focus()
 	elif current_tab == 1: # Audio
 		$Audio.grab_focus()
-	elif current_tab == 2: # Controls
-		$Controls.grab_focus()
 
 func reload_settings():
 	video.load_video_settings()

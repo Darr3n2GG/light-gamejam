@@ -4,6 +4,7 @@ class_name Star
 @onready var mouse_click_timer = $Timer
 @onready var sprite = $Sprite
 @onready var light_emitter = $LightEmitter
+@onready var debug = $Debug
 var drag_sprite = preload("res://src/assets/star.png")
 var rotate_sprite = preload("res://src/assets/star2.png")
 
@@ -54,6 +55,7 @@ func _on_area_2d_mouse_exited() -> void:
 	touching_mouse = false
 
 func _process(_delta) -> void:
+	debug.text = "light_enabled : " + str(light_enabled)
 	if holding_mouse:
 		execute_action()
 

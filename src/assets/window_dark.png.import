@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dswc2o74ibd62"
-path="res://.godot/imported/light.webp-ad3d3bae4f1f69f2c35a94d83fec243e.ctex"
+uid="uid://6ql5l446w837"
+path="res://.godot/imported/window_dark.png-757e7728e4728fb6b1c5ce3c1f0f0879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/light.webp"
-dest_files=["res://.godot/imported/light.webp-ad3d3bae4f1f69f2c35a94d83fec243e.ctex"]
+source_file="res://src/assets/window_dark.png"
+dest_files=["res://.godot/imported/window_dark.png-757e7728e4728fb6b1c5ce3c1f0f0879.ctex"]
 
 [params]
 

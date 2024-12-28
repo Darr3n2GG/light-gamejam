@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://brbul67lny75c"]
+[gd_scene load_steps=15 format=3 uid="uid://brbul67lny75c"]
 
 [ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_l80pn"]
 [ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_3vbx7"]
 [ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="2_p7wgu"]
 [ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_gn5rj"]
 [ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_jrwjk"]
+[ext_resource type="Texture2D" uid="uid://6ql5l446w837" path="res://src/assets/window_dark.png" id="5_3t587"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
 size = Vector2(38, 107)
@@ -38,7 +39,6 @@ normal = Vector2(-1, 0)
 distance = -1280.0
 
 [node name="Level1" type="Node2D"]
-metadata/level = 0
 
 [node name="TempBg" type="Sprite2D" parent="."]
 texture = ExtResource("1_l80pn")
@@ -64,6 +64,11 @@ shape = SubResource("RectangleShape2D_id6wr")
 
 [node name="Timer" type="Timer" parent="WinCondition"]
 wait_time = 2.0
+
+[node name="Sprite" type="Sprite2D" parent="WinCondition"]
+position = Vector2(0.499992, -1.69277e-05)
+scale = Vector2(0.26, 0.163333)
+texture = ExtResource("5_3t587")
 
 [node name="WinLight" type="PointLight2D" parent="."]
 position = Vector2(1103, 800)

@@ -42,6 +42,13 @@ position = Vector2(0, -22)
 color = Color(1, 1, 0.270588, 1)
 texture = SubResource("GradientTexture2D_21nkw")
 
+[node name="Debug" type="Label" parent="."]
+visible = false
+offset_left = -35.0
+offset_top = -48.0
+offset_right = 17.0
+offset_bottom = -25.0
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

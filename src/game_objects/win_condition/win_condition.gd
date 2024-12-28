@@ -3,9 +3,8 @@ class_name WinCondition
 
 signal light_entered
 
-@onready var sprite = $Sprite2D
-const dark_sprite = preload("res://src/game_objects/win_condition/window_dark.png")
-const bright_sprite = preload("res://src/game_objects/win_condition/window_bright.png")
+@onready var sprite = $Sprite
+const bright_sprite = preload("res://src/assets/window_bright.png")
 
 var light_has_entered : bool = false
 

@@ -1,14 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://brbul67lny75c"]
+[gd_scene load_steps=14 format=3 uid="uid://d3uyh5y4txlsr"]
 
-[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_l80pn"]
-[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_3vbx7"]
-[ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="2_p7wgu"]
-[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_gn5rj"]
-[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="4_jrwjk"]
-[ext_resource type="Texture2D" uid="uid://6ql5l446w837" path="res://src/assets/window_dark.png" id="5_3t587"]
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_wqxnd"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_pdf1l"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="3_p87ls"]
+[ext_resource type="Texture2D" uid="uid://6ql5l446w837" path="res://src/assets/window_dark.png" id="4_rcesm"]
+[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="5_jdmhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
-size = Vector2(38, 107)
+size = Vector2(37, 107)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o7m"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_200xy"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgubi"]
+distance = -960.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70nqy"]
+normal = Vector2(-1, 0)
+distance = -1280.0
 
 [sub_resource type="Gradient" id="Gradient_u8ua0"]
 offsets = PackedFloat32Array(0, 0.00578035)
@@ -25,32 +37,20 @@ background_mode = 3
 glow_enabled = true
 glow_bloom = 0.2
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o7m"]
-normal = Vector2(0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_200xy"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgubi"]
-distance = -960.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70nqy"]
-normal = Vector2(-1, 0)
-distance = -1280.0
-
 [node name="Level1" type="Node2D"]
 
 [node name="TempBg" type="Sprite2D" parent="."]
-texture = ExtResource("1_4v5e5")
+texture = ExtResource("1_wqxnd")
 centered = false
 
-[node name="LightSource" parent="." instance=ExtResource("2_orxp5")]
+[node name="LightSource" parent="." instance=ExtResource("2_pdf1l")]
 position = Vector2(126, 119)
 
-[node name="WinCondition" parent="." instance=ExtResource("3_jfb6d")]
+[node name="WinCondition" parent="." instance=ExtResource("3_p87ls")]
 position = Vector2(928, 697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_id6wr")
 
 [node name="Timer" type="Timer" parent="WinCondition"]
@@ -60,39 +60,7 @@ one_shot = true
 [node name="Sprite" type="Sprite2D" parent="WinCondition"]
 position = Vector2(0.499992, -1.69277e-05)
 scale = Vector2(0.26, 0.163333)
-texture = ExtResource("5_3t587")
-
-[node name="WinLight" type="PointLight2D" parent="."]
-position = Vector2(1103, 800)
-scale = Vector2(4.85938, 4.89062)
-color = Color(1, 1, 0, 1)
-energy = 3.5
-texture = SubResource("GradientTexture2D_612kl")
-script = ExtResource("4_ixayw")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.5
-blend_mode = 1
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_e2vlp")
-
-[node name="Building" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
-polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
-
-[node name="LevelText" type="RichTextLabel" parent="."]
-offset_left = 951.0
-offset_top = 24.0
-offset_right = 1244.0
-offset_bottom = 64.0
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[color=#efffaf] TUTORIAL 1"
-fit_content = true
+texture = ExtResource("4_rcesm")
 
 [node name="Border" type="Area2D" parent="."]
 collision_layer = 4
@@ -110,14 +78,46 @@ shape = SubResource("WorldBoundaryShape2D_fgubi")
 [node name="Left" type="CollisionShape2D" parent="Border"]
 shape = SubResource("WorldBoundaryShape2D_70nqy")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 942.0
-offset_top = 218.0
-offset_right = 1255.0
-offset_bottom = 287.0
+[node name="Building" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
+polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
+
+[node name="WinLight" type="PointLight2D" parent="."]
+position = Vector2(1103, 800)
+scale = Vector2(4.85938, 4.89062)
+color = Color(1, 1, 0, 1)
+energy = 3.5
+texture = SubResource("GradientTexture2D_612kl")
+script = ExtResource("5_jdmhj")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
+blend_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e2vlp")
+
+[node name="LevelText" type="RichTextLabel" parent="."]
+offset_left = 951.0
+offset_top = 24.0
+offset_right = 1244.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=#efffaf] TUTORIAL 1"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="."]
+offset_left = 943.0
+offset_top = 216.0
+offset_right = 1251.0
+offset_bottom = 377.0
+bbcode_enabled = true
 text = "Welcome! In this game, you have to point the moonlight to the window in order to win.
-Click on the moon and drag to any direction to control the direction of moonlight.
-"
+Click on the moon and drag to any direction to control the direction of moonlight."
 fit_content = true
 
 [connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]

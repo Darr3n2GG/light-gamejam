@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b633nv3m7anqw"]
+[gd_scene load_steps=11 format=3 uid="uid://cc3jkt1u12fvq"]
 
 [ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_32gsg"]
 [ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="2_2mb0u"]
@@ -101,7 +101,7 @@ offset_top = 518.0
 offset_right = 949.0
 offset_bottom = 568.0
 theme_override_font_sizes/normal_font_size = 30
-text = "We wish that you had fun on our game!"
+text = "We wish you had fun playing our game!"
 fit_content = true
 
 [editable path="LightSource"]

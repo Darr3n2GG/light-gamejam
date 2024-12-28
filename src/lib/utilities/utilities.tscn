@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" path="res://src/lib/utilities/Utilities.gd" id="1_1a5s3"]
 [ext_resource type="PackedScene" uid="uid://dc388hkklqvvc" path="res://src/ui/main_menu/main_menu.tscn" id="2_2wsm8"]
-[ext_resource type="PackedScene" uid="uid://brbul67lny75c" path="res://src/levels/level_3.tscn" id="3_0et4q"]
-[ext_resource type="PackedScene" uid="uid://8rwhhtceo4d2" path="res://src/levels/level_2.tscn" id="4_4d74c"]
-[ext_resource type="PackedScene" uid="uid://cqxhjjdwllr57" path="res://src/levels/level_1.tscn" id="4_vqp45"]
-[ext_resource type="PackedScene" uid="uid://tx4j0wurb4fn" path="res://src/levels/level_4.tscn" id="6_nvubj"]
-[ext_resource type="PackedScene" uid="uid://dt8yw8xcgn58k" path="res://src/levels/level_5.tscn" id="7_onffw"]
-[ext_resource type="PackedScene" uid="uid://by518no336lwb" path="res://src/levels/level_6.tscn" id="8_2ph4a"]
-[ext_resource type="PackedScene" uid="uid://cbvbddgiat4xy" path="res://src/levels/level_7.tscn" id="9_wvit0"]
-[ext_resource type="PackedScene" uid="uid://u01q23kuk1h5" path="res://src/levels/level_8.tscn" id="10_2ufe6"]
-[ext_resource type="PackedScene" uid="uid://mr50ko7joh1o" path="res://src/levels/level_9.tscn" id="11_1usue"]
-[ext_resource type="PackedScene" uid="uid://fqx3y3s7274h" path="res://src/levels/level_10.tscn" id="12_4gqfk"]
-[ext_resource type="PackedScene" uid="uid://b633nv3m7anqw" path="res://src/levels/level_11.tscn" id="13_80sgo"]
+[ext_resource type="PackedScene" uid="uid://d3uyh5y4txlsr" path="res://src/levels/level_1.tscn" id="3_giwq5"]
+[ext_resource type="PackedScene" uid="uid://h6uw0t3kxw7w" path="res://src/levels/level_2.tscn" id="4_4d74c"]
+[ext_resource type="PackedScene" uid="uid://c6j3f1xwk3aje" path="res://src/levels/level_3.tscn" id="5_t5bpt"]
+[ext_resource type="PackedScene" uid="uid://dknoud0qshbc0" path="res://src/levels/level_4.tscn" id="6_nvubj"]
+[ext_resource type="PackedScene" uid="uid://cci8a56vh3lho" path="res://src/levels/level_5.tscn" id="7_onffw"]
+[ext_resource type="PackedScene" uid="uid://de6n8uls3e8r1" path="res://src/levels/level_6.tscn" id="8_2ph4a"]
+[ext_resource type="PackedScene" uid="uid://b4e0tigk4m84a" path="res://src/levels/level_7.tscn" id="9_wvit0"]
+[ext_resource type="PackedScene" uid="uid://db54kd7rjbqtp" path="res://src/levels/level_8.tscn" id="10_2ufe6"]
+[ext_resource type="PackedScene" uid="uid://barhwkrqr2ame" path="res://src/levels/level_9.tscn" id="11_1usue"]
+[ext_resource type="PackedScene" uid="uid://chagyo4by6vro" path="res://src/levels/level_10.tscn" id="12_4gqfk"]
+[ext_resource type="PackedScene" path="res://src/levels/level_11.tscn" id="13_80sgo"]
 
 [node name="Utilities" type="Node"]
 script = ExtResource("1_1a5s3")
-scenes = Array[PackedScene]([ExtResource("2_2wsm8"), ExtResource("4_vqp45"), ExtResource("4_4d74c"), ExtResource("3_0et4q"), ExtResource("6_nvubj"), ExtResource("7_onffw"), ExtResource("8_2ph4a"), ExtResource("9_wvit0"), ExtResource("10_2ufe6"), ExtResource("11_1usue"), ExtResource("12_4gqfk"), ExtResource("13_80sgo")])
+scenes = Array[PackedScene]([ExtResource("2_2wsm8"), ExtResource("3_giwq5"), ExtResource("4_4d74c"), ExtResource("5_t5bpt"), ExtResource("6_nvubj"), ExtResource("7_onffw"), ExtResource("8_2ph4a"), ExtResource("9_wvit0"), ExtResource("10_2ufe6"), ExtResource("11_1usue"), ExtResource("12_4gqfk"), ExtResource("13_80sgo")])
 scene_map = {
 "MainMenu": 0,
 "level_1": 1,

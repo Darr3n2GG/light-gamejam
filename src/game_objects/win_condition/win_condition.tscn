@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ubrppuid7ts"]
+
+[ext_resource type="Script" path="res://src/game_objects/win_condition/win_condition.gd" id="1_iqn5p"]
+; [ext_resource type="Texture2D" uid="uid://6ql5l446w837" path="res://src/game_objects/win_condition/window_dark.png" id="2_5padg"]
+
+[node name="WinCondition" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_iqn5p")
+
+; [node name="Sprite2D" type="Sprite2D" parent="."]
+; scale = Vector2(0.25, 0.16)
+; texture = ExtResource("2_5padg")

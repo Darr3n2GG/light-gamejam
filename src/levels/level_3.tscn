@@ -1,0 +1,135 @@
+[gd_scene load_steps=16 format=3 uid="uid://c6j3f1xwk3aje"]
+
+[ext_resource type="Texture2D" uid="uid://byb1s8yq2mcfi" path="res://src/assets/temp_bg.jpg" id="1_orw0s"]
+[ext_resource type="PackedScene" uid="uid://dqr1bfhwvveg3" path="res://src/game_objects/star/star.tscn" id="2_rjvyg"]
+[ext_resource type="PackedScene" uid="uid://byxml2oexm302" path="res://src/game_objects/light_source/light_source.tscn" id="3_x5jx5"]
+[ext_resource type="PackedScene" uid="uid://d0ubrppuid7ts" path="res://src/game_objects/win_condition/win_condition.tscn" id="4_hcjr5"]
+[ext_resource type="Texture2D" uid="uid://6ql5l446w837" path="res://src/assets/window_dark.png" id="4_xpjg2"]
+[ext_resource type="Script" path="res://src/game_objects/win_light.gd" id="5_p4l6c"]
+[ext_resource type="PackedScene" uid="uid://b5cf1hdl4ln25" path="res://src/game_objects/obstacle/obstacle.tscn" id="6_le5mb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_id6wr"]
+size = Vector2(38, 107)
+
+[sub_resource type="Gradient" id="Gradient_u8ua0"]
+offsets = PackedFloat32Array(0, 0.0231214)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_612kl"]
+gradient = SubResource("Gradient_u8ua0")
+fill = 1
+fill_from = Vector2(0, 0.2)
+fill_to = Vector2(0.9, 0.7)
+
+[sub_resource type="Environment" id="Environment_e2vlp"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q754g"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1p1ra"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o62a3"]
+distance = -960.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_26q8q"]
+normal = Vector2(-1, 0)
+distance = -1280.0
+
+[node name="Level_3" type="Node2D"]
+metadata/level = 0
+
+[node name="TempBg" type="Sprite2D" parent="."]
+texture = ExtResource("1_orw0s")
+centered = false
+
+[node name="LightSource" parent="." instance=ExtResource("3_x5jx5")]
+position = Vector2(126, 119)
+
+[node name="WinCondition" parent="." instance=ExtResource("4_hcjr5")]
+position = Vector2(928, 697)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinCondition"]
+shape = SubResource("RectangleShape2D_id6wr")
+
+[node name="Timer" type="Timer" parent="WinCondition"]
+wait_time = 2.0
+
+[node name="Sprite" type="Sprite2D" parent="WinCondition"]
+position = Vector2(0.499992, -1.69277e-05)
+scale = Vector2(0.26, 0.163333)
+texture = ExtResource("4_xpjg2")
+
+[node name="WinLight" type="PointLight2D" parent="."]
+position = Vector2(1103, 800)
+scale = Vector2(4.85938, 4.89062)
+color = Color(1, 1, 0, 1)
+energy = 3.5
+texture = SubResource("GradientTexture2D_612kl")
+script = ExtResource("5_p4l6c")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
+blend_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e2vlp")
+
+[node name="Building" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building"]
+visible = false
+polygon = PackedVector2Array(912, 0, 912, 128, 844, 128, 844, 184, 912, 184, 912, 560, 840, 560, 840, 611, 912, 611, 912, 960, 1280, 960, 1280, 0)
+
+[node name="LevelText" type="RichTextLabel" parent="."]
+offset_left = 951.0
+offset_top = 24.0
+offset_right = 1244.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=#efffaf] LEVEL 1"
+fit_content = true
+
+[node name="Border" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Down" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_q754g")
+
+[node name="Right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_1p1ra")
+
+[node name="Up" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_o62a3")
+
+[node name="Left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_26q8q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 946.0
+offset_top = 215.0
+offset_right = 1180.0
+offset_bottom = 255.0
+bbcode_enabled = true
+text = "The stars will turn back to [color=#ffff00]drag mode[/color] after deselect. Have fun!"
+fit_content = true
+
+[node name="Star" parent="." instance=ExtResource("2_rjvyg")]
+position = Vector2(355, 221)
+
+[node name="Star2" parent="." instance=ExtResource("2_rjvyg")]
+position = Vector2(366, 531)
+
+[node name="Obstacle" parent="." instance=ExtResource("6_le5mb")]
+position = Vector2(769, 638)
+
+[node name="Obstacle2" parent="." instance=ExtResource("6_le5mb")]
+position = Vector2(167, 273)
+
+[connection signal="light_entered" from="WinCondition" to="WinLight" method="_on_win_condition_light_entered"]
+[connection signal="timeout" from="WinCondition/Timer" to="WinCondition" method="_on_timer_timeout"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgsk2vb2tsgsl"]
+
+[ext_resource type="Script" path="res://src/game_objects/light_beam/light_beam.gd" id="1_ydu5k"]
+
+[node name="LightBeam" type="RayCast2D"]
+target_position = Vector2(2500, 0)
+collision_mask = 23
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("1_ydu5k")
+
+[node name="Line2D" type="Line2D" parent="."]
+self_modulate = Color(10, 10, 10, 1)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+default_color = Color(1, 1, 0, 1)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckxap6c7itfg5"]
+
+[ext_resource type="Script" path="res://src/game_objects/light_emitter/pointer/pointer.gd" id="1_f5arr"]
+
+[node name="Pointer" type="Marker2D"]
+script = ExtResource("1_f5arr")
